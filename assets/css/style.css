@@ -1,1 +1,234 @@
+/* ============================================
+   Saint-Valentin — styles personnalisés
+   (Tailwind gère l'essentiel, ce fichier gère
+   les détails que les classes utilitaires ne
+   couvrent pas facilement : nav, hero, cartes)
+   ============================================ */
 
+html {
+  scroll-behavior: smooth;
+}
+
+/* ----- Navigation ----- */
+.nav-link {
+  color: #2B1518;
+  opacity: 0.7;
+  position: relative;
+  transition: opacity 0.2s ease;
+}
+.nav-link:hover {
+  opacity: 1;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background: #6B1E3B;
+  transition: width 0.2s ease;
+}
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* ----- Boutons ----- */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #6B1E3B;
+  color: #FBF6F1;
+  font-weight: 600;
+  padding: 0.85rem 1.75rem;
+  border-radius: 999px;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+.btn-primary:hover {
+  background: #4A1329;
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #6B1E3B;
+  font-weight: 600;
+  padding: 0.85rem 1.75rem;
+  border-radius: 999px;
+  border: 1.5px solid rgba(107, 30, 59, 0.3);
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+.btn-secondary:hover {
+  border-color: #6B1E3B;
+  background: rgba(107, 30, 59, 0.04);
+}
+
+/* ----- Hero illustration ----- */
+.hero-disc {
+  position: absolute;
+  inset: 8% 10%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #F6DDE1, #E8A0AE 70%);
+  opacity: 0.55;
+}
+
+.hero-center {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 5rem;
+  color: #6B1E3B;
+}
+
+.hero-petal {
+  position: absolute;
+  font-size: 1.75rem;
+  color: #C9A45C;
+  animation: float 6s ease-in-out infinite;
+}
+.hero-petal-1 { top: 8%; left: 12%; animation-delay: 0s; }
+.hero-petal-2 { top: 60%; left: 4%; font-size: 1.4rem; color: #6B1E3B; animation-delay: 1.5s; }
+.hero-petal-3 { top: 15%; right: 8%; font-size: 1.4rem; animation-delay: 3s; }
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-14px) rotate(8deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-petal { animation: none; }
+  html { scroll-behavior: auto; }
+}
+
+/* ----- Cartes produit ----- */
+.product-card {
+  background: #ffffff;
+  border: 1px solid rgba(107, 30, 59, 0.08);
+  border-radius: 1.25rem;
+  padding: 1.75rem;
+  box-shadow: 0 1px 2px rgba(43, 21, 24, 0.04);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+.product-card:hover {
+  box-shadow: 0 12px 28px rgba(107, 30, 59, 0.1);
+  transform: translateY(-2px);
+}
+
+.product-icon {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+}
+
+.qty-control {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border: 1px solid rgba(107, 30, 59, 0.2);
+  border-radius: 999px;
+  padding: 0.25rem 0.5rem;
+}
+.qty-btn {
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6B1E3B;
+  font-weight: 700;
+  transition: background 0.15s ease;
+}
+.qty-btn:hover {
+  background: rgba(107, 30, 59, 0.08);
+}
+.qty-value {
+  min-width: 1.25rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+.add-btn {
+  margin-top: 1.25rem;
+  width: 100%;
+  padding: 0.65rem;
+  border-radius: 999px;
+  border: 1.5px solid #6B1E3B;
+  color: #6B1E3B;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.add-btn:hover {
+  background: #6B1E3B;
+  color: #FBF6F1;
+}
+.add-btn.added {
+  background: #6B1E3B;
+  color: #FBF6F1;
+}
+
+/* ----- Étapes ----- */
+.step-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background: rgba(251, 246, 241, 0.1);
+  border: 1px solid rgba(251, 246, 241, 0.25);
+  font-family: "Fraunces", serif;
+  font-size: 1.1rem;
+}
+
+/* ----- Formulaire ----- */
+.form-label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #2B1518;
+  margin-bottom: 0.4rem;
+}
+.form-input {
+  width: 100%;
+  border: 1px solid rgba(107, 30, 59, 0.2);
+  border-radius: 0.7rem;
+  padding: 0.65rem 0.9rem;
+  background: #ffffff;
+  font-size: 0.95rem;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.form-input:focus {
+  outline: none;
+  border-color: #6B1E3B;
+  box-shadow: 0 0 0 3px rgba(107, 30, 59, 0.12);
+}
+.form-input.invalid {
+  border-color: #B3261E;
+}
+.form-error {
+  min-height: 1.1rem;
+  font-size: 0.78rem;
+  color: #B3261E;
+  margin-top: 0.3rem;
+}
+
+/* Visible keyboard focus everywhere */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #6B1E3B;
+  outline-offset: 2px;
+}
