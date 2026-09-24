@@ -1,1 +1,254 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Saint-Valentin — Roses & Chocolats | Lycée</title>
+<meta name="description" content="Vente de roses et de chocolats pour la Saint-Valentin, organisée par les élèves du lycée.">
 
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          bordeaux: { DEFAULT: '#6B1E3B', dark: '#4A1329', light: '#8C3454' },
+          blush: { DEFAULT: '#E8A0AE', light: '#F6DDE1' },
+          gold: { DEFAULT: '#C9A45C', light: '#E4CD9C' },
+          cream: '#FBF6F1',
+          ink: '#2B1518',
+        },
+        fontFamily: {
+          display: ['"Fraunces"', 'serif'],
+          body: ['"Work Sans"', 'sans-serif'],
+        },
+      },
+    },
+  };
+</script>
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body class="bg-cream text-ink font-body antialiased">
+
+<!-- ===== HEADER ===== -->
+<header class="sticky top-0 z-50 bg-cream/90 backdrop-blur border-b border-bordeaux/10">
+  <div class="max-w-6xl mx-auto px-5 md:px-8 flex items-center justify-between h-16">
+    <a href="#accueil" class="flex items-center gap-2 font-display text-xl font-semibold text-bordeaux">
+      <i class="fa-solid fa-heart text-blush"></i>
+      Amour & Gourmandises
+    </a>
+
+    <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
+      <a href="#accueil" class="nav-link">Accueil</a>
+      <a href="#produits" class="nav-link">Nos produits</a>
+      <a href="#etapes" class="nav-link">Commander</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </nav>
+
+    <div class="flex items-center gap-4">
+      <button id="cart-btn" class="relative flex items-center gap-2 text-bordeaux hover:text-bordeaux-dark transition">
+        <i class="fa-solid fa-basket-shopping text-lg"></i>
+        <span id="cart-count" class="absolute -top-2 -right-2 bg-gold text-white text-[11px] font-bold w-5 h-5 rounded-full flex items-center justify-center">0</span>
+      </button>
+      <button id="menu-btn" class="md:hidden text-bordeaux text-xl" aria-label="Ouvrir le menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile nav -->
+  <nav id="mobile-nav" class="hidden md:hidden flex-col gap-1 px-5 pb-4 text-sm font-medium">
+    <a href="#accueil" class="block py-2 nav-link">Accueil</a>
+    <a href="#produits" class="block py-2 nav-link">Nos produits</a>
+    <a href="#etapes" class="block py-2 nav-link">Commander</a>
+    <a href="#contact" class="block py-2 nav-link">Contact</a>
+  </nav>
+</header>
+
+<!-- ===== HERO ===== -->
+<section id="accueil" class="relative overflow-hidden">
+  <div class="max-w-6xl mx-auto px-5 md:px-8 pt-16 pb-24 md:pt-24 md:pb-32 grid md:grid-cols-2 gap-12 items-center">
+    <div class="relative z-10">
+      <p class="text-bordeaux font-semibold tracking-wide mb-3">14 février</p>
+      <h1 class="font-display text-5xl md:text-6xl leading-[1.05] text-bordeaux-dark">
+        Offrez un vrai moment de douceur.
+      </h1>
+      <p class="mt-6 text-lg text-ink/70 max-w-md">
+        Roses fraîches et chocolats gourmands, vendus par les élèves du lycée pour financer notre projet de classe. Réservez avant le 12 février.
+      </p>
+      <div class="mt-8 flex flex-wrap gap-4">
+        <a href="#produits" class="btn-primary">
+          Découvrir les produits
+          <i class="fa-solid fa-arrow-right-long ml-2 text-sm"></i>
+        </a>
+        <a href="#etapes" class="btn-secondary">Comment commander</a>
+      </div>
+    </div>
+
+    <div class="relative h-72 md:h-[26rem]" aria-hidden="true">
+      <div class="hero-petal hero-petal-1"><i class="fa-solid fa-heart"></i></div>
+      <div class="hero-petal hero-petal-2"><i class="fa-solid fa-rose"></i></div>
+      <div class="hero-petal hero-petal-3"><i class="fa-solid fa-heart"></i></div>
+      <div class="hero-disc"></div>
+      <div class="hero-center">
+        <i class="fa-solid fa-rose"></i>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PRODUITS ===== -->
+<section id="produits" class="max-w-6xl mx-auto px-5 md:px-8 py-20">
+  <div class="max-w-xl mb-12">
+    <h2 class="font-display text-4xl text-bordeaux-dark">Nos produits</h2>
+    <p class="mt-3 text-ink/70">Ajustez les quantités, ajoutez au panier, puis passez commande via le formulaire.</p>
+  </div>
+
+  <div class="grid md:grid-cols-2 gap-8">
+
+    <!-- Carte Roses -->
+    <article class="product-card" data-name="Bouquet de roses" data-price="8">
+      <div class="product-icon bg-blush/40 text-bordeaux"><i class="fa-solid fa-rose"></i></div>
+      <h3 class="font-display text-2xl mt-5 text-bordeaux-dark">Rose individuelle</h3>
+      <p class="mt-2 text-ink/70 text-sm">Une rose fraîche accompagnée d'un petit mot personnalisé, à offrir ou à s'offrir.</p>
+      <div class="mt-5 flex items-end justify-between">
+        <span class="font-display text-2xl text-bordeaux">3,00 €</span>
+        <div class="qty-control" data-price="3">
+          <button class="qty-btn" data-action="minus" aria-label="Diminuer">−</button>
+          <span class="qty-value">0</span>
+          <button class="qty-btn" data-action="plus" aria-label="Augmenter">+</button>
+        </div>
+      </div>
+      <button class="add-btn" data-product="Rose individuelle" data-unit-price="3">Ajouter au panier</button>
+    </article>
+
+    <!-- Carte Chocolats -->
+    <article class="product-card" data-name="Boîte de chocolats" data-price="6">
+      <div class="product-icon bg-gold/30 text-gold"><i class="fa-solid fa-cookie-bite"></i></div>
+      <h3 class="font-display text-2xl mt-5 text-bordeaux-dark">Boîte de chocolats</h3>
+      <p class="mt-2 text-ink/70 text-sm">Assortiment de 6 chocolats artisanaux, présentés dans une boîte aux couleurs de la Saint-Valentin.</p>
+      <div class="mt-5 flex items-end justify-between">
+        <span class="font-display text-2xl text-bordeaux">6,00 €</span>
+        <div class="qty-control" data-price="6">
+          <button class="qty-btn" data-action="minus" aria-label="Diminuer">−</button>
+          <span class="qty-value">0</span>
+          <button class="qty-btn" data-action="plus" aria-label="Augmenter">+</button>
+        </div>
+      </div>
+      <button class="add-btn" data-product="Boîte de chocolats" data-unit-price="6">Ajouter au panier</button>
+    </article>
+
+  </div>
+
+  <!-- Récapitulatif panier -->
+  <div id="cart-summary" class="mt-10 hidden bg-white border border-bordeaux/10 rounded-2xl p-6">
+    <h3 class="font-display text-xl text-bordeaux-dark mb-4">Votre panier</h3>
+    <ul id="cart-list" class="divide-y divide-bordeaux/10 text-sm"></ul>
+    <div class="flex items-center justify-between mt-4 pt-4 border-t border-bordeaux/10">
+      <span class="font-semibold">Total</span>
+      <span id="cart-total" class="font-display text-2xl text-bordeaux">0,00 €</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ETAPES ===== -->
+<section id="etapes" class="bg-bordeaux-dark text-cream">
+  <div class="max-w-6xl mx-auto px-5 md:px-8 py-20">
+    <h2 class="font-display text-4xl mb-12">Comment commander</h2>
+    <div class="grid md:grid-cols-3 gap-10">
+      <div class="step">
+        <span class="step-num">1</span>
+        <h3 class="font-display text-xl mt-4 mb-2">Choisissez vos produits</h3>
+        <p class="text-cream/70 text-sm">Ajustez les quantités de roses et de chocolats selon vos envies.</p>
+      </div>
+      <div class="step">
+        <span class="step-num">2</span>
+        <h3 class="font-display text-xl mt-4 mb-2">Remplissez le formulaire</h3>
+        <p class="text-cream/70 text-sm">Indiquez votre nom, votre classe et vos coordonnées pour la commande.</p>
+      </div>
+      <div class="step">
+        <span class="step-num">3</span>
+        <h3 class="font-display text-xl mt-4 mb-2">Récupérez le 14 février</h3>
+        <p class="text-cream/70 text-sm">Le règlement et la remise se font directement au lycée, le jour J.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FORMULAIRE ===== -->
+<section id="contact" class="max-w-3xl mx-auto px-5 md:px-8 py-20">
+  <h2 class="font-display text-4xl text-bordeaux-dark mb-3">Passer commande</h2>
+  <p class="text-ink/70 mb-10">Un élève vous recontactera pour confirmer votre commande et le mode de paiement.</p>
+
+  <form id="order-form" class="space-y-5" novalidate>
+    <div class="grid sm:grid-cols-2 gap-5">
+      <div>
+        <label for="fullname" class="form-label">Nom et prénom</label>
+        <input type="text" id="fullname" name="fullname" class="form-input" placeholder="Ex. Camille Dupont">
+        <p class="form-error" data-error-for="fullname"></p>
+      </div>
+      <div>
+        <label for="classe" class="form-label">Classe</label>
+        <input type="text" id="classe" name="classe" class="form-input" placeholder="Ex. 1re Bac Pro Commerce">
+        <p class="form-error" data-error-for="classe"></p>
+      </div>
+    </div>
+
+    <div class="grid sm:grid-cols-2 gap-5">
+      <div>
+        <label for="email" class="form-label">E-mail</label>
+        <input type="email" id="email" name="email" class="form-input" placeholder="prenom.nom@exemple.fr">
+        <p class="form-error" data-error-for="email"></p>
+      </div>
+      <div>
+        <label for="produit" class="form-label">Produit souhaité</label>
+        <select id="produit" name="produit" class="form-input">
+          <option value="">Sélectionnez…</option>
+          <option value="Rose individuelle">Rose individuelle — 3,00 €</option>
+          <option value="Boîte de chocolats">Boîte de chocolats — 6,00 €</option>
+          <option value="Les deux">Les deux</option>
+        </select>
+        <p class="form-error" data-error-for="produit"></p>
+      </div>
+    </div>
+
+    <div>
+      <label for="message" class="form-label">Message (optionnel)</label>
+      <textarea id="message" name="message" rows="3" class="form-input" placeholder="Précisez une quantité, un mot à joindre au bouquet…"></textarea>
+    </div>
+
+    <button type="submit" class="btn-primary w-full sm:w-auto">
+      Envoyer ma commande
+      <i class="fa-solid fa-paper-plane ml-2 text-sm"></i>
+    </button>
+
+    <p id="form-success" class="hidden mt-4 text-bordeaux font-medium">
+      <i class="fa-solid fa-circle-check mr-1"></i> Merci ! Votre commande a bien été enregistrée.
+    </p>
+  </form>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="bg-ink text-cream/70">
+  <div class="max-w-6xl mx-auto px-5 md:px-8 py-10 flex flex-col md:flex-row items-center justify-between gap-4 text-sm">
+    <p>Projet Saint-Valentin — réalisé par les élèves du lycée professionnel.</p>
+    <div class="flex items-center gap-5 text-lg">
+      <i class="fa-solid fa-heart text-blush"></i>
+      <span>Vente valable jusqu'au 12 février</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/script.js"></script>
+</body>
+</html>
